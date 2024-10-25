@@ -9,10 +9,13 @@ const app = express()
 
 app.get('/', (req, res) => {
     res.status(200).send(Template())
-})
+});
 app.get('/info', (req, res) => {
-    res.send('"id": "181"')
-})
+    res.status(200).json({
+        message: "Welcome to HealthStore application",
+        id: "181",
+    }); 
+});
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
