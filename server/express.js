@@ -6,9 +6,14 @@ import cors from 'cors'
 import helmet from 'helmet'
 import Template from './../template.js'
 const app = express()
+
 app.get('/', (req, res) => {
     res.status(200).send(Template())
 })
+app.get('/info', (req, res) => {
+    res.send('"id": "181"')
+})
+
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(cookieParser())
