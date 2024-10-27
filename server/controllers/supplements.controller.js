@@ -6,7 +6,7 @@ const create = async (req, res) => {
     try {
         await supplement.save()
         return res.status(200).json({
-            message: "Successfully signed up!"
+            message: "Successfully added supplement"
         })
     } catch (err) {
         return res.status(400).json({
@@ -16,7 +16,7 @@ const create = async (req, res) => {
 }
 const list = async (req, res) => {
     try {
-        let supplements = await Supplement.find().select('name email updated created')
+        let supplements = await Supplement.find().select('name description price quantity')
         res.json(supplements)
     } catch (err) {
         return res.status(400).json({
@@ -29,7 +29,7 @@ const supplementByID = async (req, res, next, id) => {
         let supplement = await Supplement.findById(id)
         if (!supplement)
             return res.status('400').json({
-                error: "User not found"
+                error: "Supplement not found"
             })
         req.profile = supplement
         next()
