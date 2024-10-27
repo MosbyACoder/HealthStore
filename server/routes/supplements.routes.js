@@ -7,4 +7,5 @@ router.param('supplementId', supplementCtrl.supplementByID)
 router.route('/api/supplements/:supplementId').get(supplementCtrl.read)
 router.route('/api/supplements/:supplementId').put(supplementCtrl.update)
 router.route('/api/supplements/:supplementId').delete(supplementCtrl.remove)
+router.route('/api/supplements').delete(supplementCtrl.remove)
 export default router
