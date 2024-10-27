@@ -5,6 +5,7 @@ import compress from 'compression'
 import cors from 'cors'
 import helmet from 'helmet'
 import Template from './../template.js'
+import supplementRoutes from './routes/supplements.routes.js'
 const app = express()
 
 app.get('/', (req, res) => {
@@ -16,7 +17,9 @@ app.get('/info', (req, res) => {
         id: "181",
     }); 
 });
-
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use('/', supplementRoutes)
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(cookieParser())

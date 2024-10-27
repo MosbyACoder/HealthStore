@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose'
 const SupplementSchema = new mongoose.Schema({
     name: {
         type: String,
@@ -12,11 +12,13 @@ const SupplementSchema = new mongoose.Schema({
         required: 'product description is required'
     },
     price: {
-        type: Number        
-    },
-    updated: {
         type: Number
+               
+    },
+    quantity: {
+        type: Number
+        
     },   
 });
 
-module.exports = mongoose.model('Supplement', SupplementSchema);
+export default mongoose.model('Supplement', SupplementSchema);

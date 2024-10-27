@@ -26,7 +26,7 @@ const list = async (req, res) => {
 }
 const supplementByID = async (req, res, next, id) => {
     try {
-        let supplement = await User.findById(id)
+        let supplement = await Supplement.findById(id)
         if (!supplement)
             return res.status('400').json({
                 error: "User not found"
