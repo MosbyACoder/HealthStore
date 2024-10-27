@@ -6,13 +6,13 @@ mongoose.connect(config.mongoUri, {
 
 })
 .then(() => {
-    console.log("Connected to the database!");
+    console.log("Connected to the HealthStore database!");
 })
 mongoose.connection.on('error', () => {
     throw new Error(`unable to connect to database: ${config.mongoUri}`) 
 })
 app.get("/", (req, res) => {
-    res.json({ message: "Welcome to User application." });
+    res.json({ message: "Welcome to HealthStore application." });
 });
 app.listen(config.port, (err) => { 
     if (err) {
